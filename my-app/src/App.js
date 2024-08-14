@@ -3,12 +3,23 @@ import logo from './logo.svg';
 import './App.css';
 import ProgressBar from './ProgressBar';
 import Upgrades from './UpgradesBox';
+import Img1 from './Img1.png'
+import Img2 from './Img2.png'
+import Img3 from './Img3.png'
+import Img4 from './Img4.png'
+import Img5 from './Img5.png'
 
 function App() {
   const [count, setCount] = useState(3);
   const [HP, setHP] = useState(10);
   const [Level, setLevel] = useState(0);
   const [textColor, setColor] = useState('#11111')
+  const [Img, setImage] = useState(0)
+  const [clickPosition, setClickPosition] = useState(null);
+  const [showFlicker, setShowFlicker] = useState(false);
+  const ClickerImage = [Img1,Img2,Img3,Img4,Img5];
+  
+
   
   function randDarkColor() {
     var lum = -0.25;
@@ -26,13 +37,24 @@ function App() {
     return rgb;
     }
 
-  const handleClick = () => {
+  const handleClick = (event) => {
     setCount(prevCount => prevCount + 1);
     setHP(prevHP => prevHP - 0.5); // Increase HP when button is clicked
+    const { clientX, clientY } = event;
+    setClickPosition({ x: clientX, y: clientY });
+    setShowFlicker(true);
+    setTimeout(() => {
+      setShowFlicker(false);
+    }, 300);   
+    
   };
   useEffect(() => {
     const randomColor = randDarkColor();
     document.documentElement.style.setProperty('--main-bg-color', randomColor);
+    setImage(Img+1)
+    if (Img === 4){
+      setImage(0)
+    };
   }, [Level]);
   
 
@@ -58,10 +80,26 @@ function App() {
           <ProgressBar HP={HP} Level={Level} />
           <div className='button-container'>
            <button onClick={handleClick} className="button" style={{ backgroundColor: textColor}} >
-            click
+            <img className='SushiImg' src={ClickerImage[Img]}/>
             </button>
-            
           </div>
+          {clickPosition && (
+        <div
+          className={showFlicker ? 'flicker' : ''}
+          style={{
+            position: 'absolute',
+            left: clickPosition.x,
+            top: clickPosition.y,
+            transform: 'translate(-50%, -50%)',
+            color: 'white',
+            borderRadius: '5px',
+            pointerEvents: 'none', 
+            opacity : '50%',
+          }}
+        >
+          +1
+        </div>
+      )}
           <h4>UPGRADES BOX </h4>
 
         </div>

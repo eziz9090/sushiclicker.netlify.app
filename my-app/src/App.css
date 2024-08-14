@@ -1,30 +1,31 @@
 *{
-  transition:300ms ease;
+  transition:100ms ease;
   font-weight: bolder;
   text-shadow: 8px 8px black;
+  
+}
+.SushiImg{
+  transform: scale(1.5);
+  margin: auto;
+
 }
 body{
     width: 100%;
     text-align: center;
     background-color: var(--main-bg-color);
     overflow-x: hidden;
+    overflow-y:auto;
 }
 
 .button{
-  padding:100px;
+  transform: scale(0.4);
   color:white;
   background-color: black;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 100px;
-  border-width: 10px;
-  border-radius: 100px;
-  box-shadow: 15px 15px black;
+  border-radius: 300px;
+  background-color: transparent;
 }
 
-button:hover{
-  transform: scale(0.95);
-  box-shadow: 0px 0px;
-}
 .counter{
   color:white;
   padding-top: 50px;
@@ -41,7 +42,6 @@ button:hover{
 .upgrades-container {
   color: white;
   font-size: 100px;
-  margin-top: 70px;
 }
 
 /* Media query for devices with a max width of 600px (mobile devices) */
@@ -57,36 +57,35 @@ button:hover{
     
   }
   .button{
-    transform: scale(0.3);
-    padding:50px;
-  }
-  .button:hover{
-    transform: scale(0.4);
-    padding: 60px;
+    transform: scale(0.2);
+    padding:0px;
   }
   .button-container{
     margin: auto;
     align-items: center;
   }
+  .SushiImg{
+    transform: scale(2);
+    width: 100%;
+    height: 100%;
+ 
+  }
+
 }
 
 /* Media query for devices with a max width of 400px (very small devices) */
-@media (max-width: 400px) {
-  .upgrades-container {
-    font-size: 40px; 
-    margin-top: 10px; 
-  }
-  h4{
-    font-size: medium;
-  }
-  *{
-    transform: scale(0.97);
-  }
+
+.flicker {
+  animation: flicker-animation 0.5s ease-out;
 }
 
+@keyframes flicker-animation {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
 
 /*meow*/
 
-/* GITHUB TEST*/
 
