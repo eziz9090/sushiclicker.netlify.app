@@ -10,7 +10,7 @@ import Img4 from './Img4.png'
 import Img5 from './Img5.png'
 
 function App() {
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(0);
   const [HP, setHP] = useState(10);
   const [Level, setLevel] = useState(0);
   const [textColor, setColor] = useState('#11111')
@@ -18,6 +18,7 @@ function App() {
   const [clickPosition, setClickPosition] = useState(null);
   const [showFlicker, setShowFlicker] = useState(false);
   const ClickerImage = [Img1,Img2,Img3,Img4,Img5];
+  const [ClickingPowerUpgrade, setClickingPowerUpgrade] = useState(1);
   
 
   
@@ -38,7 +39,7 @@ function App() {
     }
 
   const handleClick = (event) => {
-    setCount(prevCount => prevCount + 1);
+    setCount(prevCount => prevCount + ClickingPowerUpgrade);
     setHP(prevHP => prevHP - 0.5); // Increase HP when button is clicked
     const { clientX, clientY } = event;
     setClickPosition({ x: clientX, y: clientY });
@@ -57,11 +58,12 @@ function App() {
     };
   }, [Level]);
   
+  const UpgradeClickingPower = () =>{setClickingPowerUpgrade(ClickingPowerUpgrade+5)};
 
-  
+ 
   // Determine text color based on count
   if (HP === 0){
-
+    
     setHP(10);
     setLevel(Level+1);
     console.log(Level);
@@ -79,9 +81,7 @@ function App() {
           <h1>{count}</h1>
           <ProgressBar HP={HP} Level={Level} />
           <div className='button-container'>
-           <button onClick={handleClick} className="button" style={{ backgroundColor: textColor}} >
-            <img className='SushiImg' src={ClickerImage[Img]}/>
-            </button>
+            <img className='SushiImg' onClick={handleClick} src={ClickerImage[Img]}/>
           </div>
           {clickPosition && (
         <div
@@ -107,7 +107,7 @@ function App() {
 
 
           
-          <Upgrades/>
+          <Upgrades Upgrade1={ClickingPowerUpgrade} setUpgrade1={setClickingPowerUpgrade}/>
 
         
 
