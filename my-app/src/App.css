@@ -1,8 +1,6 @@
 *{
   transition:100ms ease;
-  font-weight: bolder;
-  text-shadow: 8px 8px black;
-  
+  font-weight: bold; 
 }
 .SushiImg{
   transform: scale(1.5);
@@ -89,3 +87,12 @@ body{
 /*meow*/
 
 
+.UpgradesText{
+  color:white;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: auto;
+  
+ 
+  
+}

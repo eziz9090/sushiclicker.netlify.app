@@ -66,7 +66,7 @@ function App() {
     setLevel(Level+1);
     console.log(Level);
     setColor(`#${Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, '0')}`)
-
+    // TODO : Add upgrades like "chopsticks" + 5 clicking power, try to make some kind of enlargening animation OnClick, some kind of level boost, and use cookies to save progress of USER 
   };
 
   return (
@@ -94,7 +94,7 @@ function App() {
             color: 'white',
             borderRadius: '5px',
             pointerEvents: 'none', 
-            opacity : '50%',
+            opacity : '0%',
           }}
         >
           +1
@@ -109,7 +109,7 @@ function App() {
           
           <Upgrades/>
 
-
+        
 
         </div>
       </header>
