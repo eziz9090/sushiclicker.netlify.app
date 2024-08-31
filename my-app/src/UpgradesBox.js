@@ -46,10 +46,12 @@ function Upgrades({ Upgrade1, setUpgrade1, count, handleClick2, setCount, Level 
     <div className='ShowUpgrades'>
       <span className="Upgrade-1">
         <div
+        className="mobileDev"
           style={{
             width: "600px",
-            transform: "scale(0.9)",
+            transform: "scale(0.7)",
             margin: "auto",
+            
           }}
         >
           <div
