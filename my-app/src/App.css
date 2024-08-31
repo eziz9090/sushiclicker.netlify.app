@@ -1,16 +1,17 @@
 *{
   transition:100ms ease;
   font-weight: bold; 
+  
 }
 .SushiImg{
-  width: 200px;
+  width: 300px;
   height: auto;
   margin: auto;
   opacity: 100%;
 
 }
 body{
-    width: 100%;
+    width: 100vw;
     text-align: center;
     background-color: var(--main-bg-color);
     overflow-x: hidden;
@@ -18,40 +19,41 @@ body{
 }
 
 .button{
-  opacity: 0;
-  width: 350px;
-  height: 150px;
-  color:white;
-  background-color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 100px;
+  padding: 30px;
+  font-size: 22px;
+  pointer-events: auto; /* Ensure pointer events are enabled */
+  z-index: 1111; /* Ensure the button is not obscured by other elements */
+  cursor: pointer;
+  display: block;
+  margin: auto;
   background-color: transparent;
+  border: 6px solid #ffffff ;
+  width: 250px;
+  color:white;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  
+  
+  
 }
 
 .counter{
   color:white;
-  padding-top: 50px;
-  font-size: 50px;
+  font-size: 60px;
   
 }
 .progressbar{
   background-color: #4CAF50; 
-  border: 2px solid #000; 
+  border: 5px solid #000; 
   margin: auto;
 
 }
 /* base styles for larger screens */
-.upgrades-container {
-  color: white;
-  font-size: 100px;
-}
+
 
 /* Media query for devices with a max width of 600px (mobile devices) */
 @media (max-width: 600px) {
-  .upgrades-container {
-    font-size: 25px; 
-    margin-top: 10px;
-  }
+  
   .counter{
     color:white;
     padding-top: 0px;
@@ -64,7 +66,7 @@ body{
     align-items: center;
   }
   .SushiImg{
-    transform: scale(0.8);
+    transform: scale(0.6);
     width: 100%;
     height: 100%;
  
@@ -88,12 +90,15 @@ body{
 /*meow*/
 
 
-.UpgradesText{
-  color:white;
-  font-weight: bolder;
-  font-size: 20px;
-  margin: auto;
-  
+.ShowUpgrades{
+  position: fixed;
  
-  
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
 }
