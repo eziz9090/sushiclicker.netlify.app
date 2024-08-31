@@ -32,7 +32,7 @@ function Upgrades({ Upgrade1, setUpgrade1, count, handleClick2, setCount, Level 
   const autoClicker = () => {
     if (autoClickerStatus) {
       setCount(prevCount => prevCount + 1); // Increment count by 2
-      setTimeout(autoClicker, 1000); // Repeat after 2 seconds
+      setTimeout(autoClicker, 2000); // Repeat after 2 seconds
     }
   };
 
